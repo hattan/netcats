@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: netcats-ingress
+spec:
+  tls:
+  - hosts:
+    - www.netcats.io
+    secretName: netcats-secret
+  rules:
+  - host: www.netcats.io
+    http:
+      paths:
+      - backend:
+          serviceName: netcats-service
+          servicePort: 80
