@@ -22,3 +22,11 @@ spec:
         - containerPort: 80
           name: http
           protocol: TCP
+        volumeMounts:
+          - name: netcats-persistent-storage
+            mountPath: /mount-cats          
+      volumes:
+        - name: netcats-persistent-storage
+          persistentVolumeClaim:
+            claimName: claim-cats
+          
